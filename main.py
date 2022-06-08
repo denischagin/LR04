@@ -23,22 +23,15 @@ def dict_way_size(way):
 
 def analysis(dict1):
     result = {}
-    list_print = []
     print('Поиск дубликатов')
-    duplicate = {}
     for key1 in dict1:
+        result[f'({dict1[key1]}, {key1})'] = []
         for key2 in dict1:
             if key1[key1.rfind('\\'):] == key2[key2.rfind('\\'):] and dict1[key1] == dict1[key2] and key1 != key2:
-                if key1 not in duplicate:
-                    duplicate.update({key1: dict1[key1]})
-    for key1 in duplicate:
-        if key1 not in list_print:
-            result[f'({duplicate[key1]}, {key1})'] = []
-            for key2 in duplicate:
-                if key1[key1.rfind('\\'):] == key2[key2.rfind('\\'):] and duplicate[key1] == duplicate[key2] and not \
-                        key1 == key2:
-                    result[f'({duplicate[key1]}, {key1})'].append(key2)
-                    list_print.append(key2)
+                if key1 not in result:
+                    result[f'({dict1[key1]}, {key1})'].append(key2)
+        if len(result[f'({dict1[key1]}, {key1})']) == 0:
+            del result[f'({dict1[key1]}, {key1})']
     return result
 
 
