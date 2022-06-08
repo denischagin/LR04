@@ -36,8 +36,8 @@ def duplicate(duplicate):
     list_print = []
     for key1 in duplicate:
         if key1 not in list_print:
-            print('\n' + ' ' * 7 + f'--> Размер дублированных файлов --> {duplicate[key1]} байт')
-            print(key1)
+            print()
+            print(f'({duplicate[key1]}, {key1})')
             for key2 in duplicate:
                 if key1[key1.rfind('\\'):] == key2[key2.rfind('\\'):] and duplicate[key1] == duplicate[key2] and not \
                         key1 == key2:
