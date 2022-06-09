@@ -15,7 +15,7 @@ def dict_way_size(way):
     dict1 = {}
     for root, dirs, files in os.walk(way):
         for file in files:
-            newkey = {os.path.join(root, file): os.path.getsize(root + '\\' + file)}
+            newkey = {os.path.join(root, file): os.path.getsize(os.path.join(root, file))}
             dict1.update(newkey)
     print('Получение файлов завершено, найдено ', len(dict1))
     return dict1
