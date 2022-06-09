@@ -34,14 +34,17 @@ def analysis(dict1):
                     trash.append(key2)
             if len(result[f'({dict1[key1]}, {key1})']) == 0:
                 del result[f'({dict1[key1]}, {key1})']
-    return result
+            else:
+                yield f'({dict1[key1]}, {key1})', result[f'({dict1[key1]}, {key1})']
 
 
 def duplicate(result):
-    for key in result:
-        print(key)
-        for el in result[key]:
-            print(el)
+    for i in result:
+        for j in i:
+            if isinstance(j, list):
+                for k in j:
+                    print(k)
+            else: print(j)
         print()
 
 
