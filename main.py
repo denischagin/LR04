@@ -29,7 +29,7 @@ def analysis(dict1):
         if key1 not in trash:
             result[f'({dict1[key1]}, {key1})'] = []
             for key2 in dict1:
-                if key1[key1.rfind('\\'):] == key2[key2.rfind('\\'):] and dict1[key1] == dict1[key2] and key1 != key2:
+                if os.path.basename(key1) == os.path.basename(key2) and dict1[key1] == dict1[key2] and key1 != key2:
                     result[f'({dict1[key1]}, {key1})'].append(key2)
                     trash.append(key2)
             if len(result[f'({dict1[key1]}, {key1})']) == 0:
